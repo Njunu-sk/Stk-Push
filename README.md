@@ -1,24 +1,34 @@
-# README
+# STK PUSH
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple implementation of M-pesa Stk push in Ruby.
 
-Things you may want to cover:
+* This piece of code is extracted from the [Mpesa Gem](https://github.com/mboya/mpesa_stk).
 
-* Ruby version
 
-* System dependencies
+* Clone the repo 
 
-* Configuration
+```bash 
+bundle install 
+```
 
-* Database creation
+* Add your env configuration 
 
-* Database initialization
+```bash 
+key="****************************"
+secret="*************"
+base_url="https://sandbox.safaricom.co.ke"
+token_generator_url="/oauth/v1/generate?grant_type=client_credentials"
+process_request_url="/mpesa/stkpush/v1/processrequest"
+callback_url="******************************"
+business_short_code="*******"
+business_passkey="***********************************"
 
-* How to run the test suite
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Start the server
 
-* Deployment instructions
+```bash 
+rails s
+```
 
-* ...
+* Check out this [repo](https://github.com/mboya/stk) for a complete implementation of the gem
