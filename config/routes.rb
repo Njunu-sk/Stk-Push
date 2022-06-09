@@ -3,4 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root "push#index"
+  post "payment" => "push#payment"
+  get "callback" => "push#callback"
 end

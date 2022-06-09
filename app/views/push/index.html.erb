@@ -1,0 +1,67 @@
+<div>
+ <div>
+   <%= form_with url: "/" do |form| %>
+    <div>
+      <%= form.label :title %><br>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :body %><br>
+      <%= form.text_area :body %>
+    </div>
+
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+   <%= form_tag payment_path do %>
+     <div class="field">
+       <label>Amount</label>
+       <%= number_field(:amount, in: 1..5, step: 1) %>
+     </div>
+     <div class="field">
+       <label>Phone Number</label>
+       <%= telephone_field(:phone_number) %>
+     </div>
+     <%= submit_tag 'Push Payment' %>
+   <% end %>
+   <br/>
+   <div>
+     <div>Note</div>
+     <p>All Green Transactions will be rolled back at midnight by </p>
+     <b>SafCom </b>
+     since this runs on sandbox
+   </div>
+ </div>
+ <div>
+   <table>
+     <thead>
+       <tr>
+         <th>Amount</th>
+         <th>Phone</th>
+         <th>State</th>
+         <th>Code</th>
+       </tr>
+     </thead>
+     <tbody>
+       <% @payments.each do |pay| %>
+         <tr>
+           <td>
+             <%= pay.amount %>
+           </td>
+           <td>
+             <%= pay.phone_number %>
+           </td>
+           <td>
+             <%= pay.state %>
+           </td>
+           <td>
+             <%= pay.code %>
+           </td>
+         </tr>
+       <% end %>
+     </tbody>
+   </table>
+ </div>
+</div>
