@@ -1,37 +1,19 @@
 <div>
  <div>
-   <%= form_with url: "/" do |form| %>
-    <div>
-      <%= form.label :title %><br>
-      <%= form.text_field :title %>
-    </div>
-
-    <div>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </div>
-
-    <div>
-      <%= form.submit %>
-    </div>
-  <% end %>
-   <%= form_tag payment_path do %>
+   <%= form_with url: payment_path do |form| %>
      <div class="field">
        <label>Amount</label>
-       <%= number_field(:amount, in: 1..5, step: 1) %>
+       <%= form.number_field(:amount, in: 1..5, step: 1) %>
      </div>
      <div class="field">
        <label>Phone Number</label>
-       <%= telephone_field(:phone_number) %>
+       <%= form.telephone_field(:phone_number) %>
      </div>
-     <%= submit_tag 'Push Payment' %>
+     <%= form.submit "Push Stk" %>
    <% end %>
    <br/>
    <div>
-     <div>Note</div>
-     <p>All Green Transactions will be rolled back at midnight by </p>
-     <b>SafCom </b>
-     since this runs on sandbox
+     <p>All transactions are made using the <a href="https://developer.safaricom.co.ke/docs/">Safaricom API</a>(sandbox env).</p>
    </div>
  </div>
  <div>

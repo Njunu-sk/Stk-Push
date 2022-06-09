@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_01_140907) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_09_083717) do
   create_table "payments", force: :cascade do |t|
     t.integer "amount"
     t.string "phone_number"
@@ -19,6 +19,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_01_140907) do
     t.string "code"
     t.string "CheckoutRequestID"
     t.string "MerchantRequestID"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "transactions", force: :cascade do |t|
+    t.string "callback"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
